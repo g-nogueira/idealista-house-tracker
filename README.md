@@ -25,7 +25,7 @@ A Chrome extension for tracking and managing house listings from Idealista.pt. B
 ```bash
 # Clone the repository
 git clone [repository-url]
-cd idealista-extension
+cd idealista-house-tracker
 
 # Install dependencies
 npm install
@@ -34,9 +34,6 @@ npm install
 ### Development Commands
 
 ```bash
-# Start development server
-npm run dev
-
 # Build extension
 npm run build
 
