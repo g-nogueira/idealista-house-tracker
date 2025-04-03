@@ -1,38 +1,97 @@
-# sv
+![Idealista House Tracker](src/assets/icon128.png)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+# Idealista House Tracker
 
-## Creating a project
+A Chrome extension for tracking and managing house listings from Idealista.pt. Built with Svelte, TypeScript, and Tailwind CSS.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
+
+- Save house listings directly from Idealista pages
+- View saved properties with key details (price, area, energy certificate, etc.)
+- Export/Import listings to/from CSV format
+- Quick access to saved properties through the extension popup
+- Visual thumbnails and direct links to property pages
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+
+- npm/pnpm/yarn
+- Chrome browser
+
+### Setup
 
 ```bash
-# create a new project in the current directory
-npx sv create
+# Clone the repository
+git clone [repository-url]
+cd idealista-extension
 
-# create a new project in my-app
-npx sv create my-app
+# Install dependencies
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Development Commands
 
 ```bash
+# Start development server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
+# Build extension
 npm run build
+
+# Build extension in development mode
+npm run build:dev
+
+# Run tests
+npm run test
+
+# Run unit tests in watch mode
+npm run test:unit
+
+# Run e2e tests
+npm run test:e2e
+
+# Format code
+npm run format
+
+# Lint code
+npm run lint
 ```
 
-You can preview the production build with `npm run preview`.
+### Project Structure
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```
+src/
+├── background/       # Chrome extension background scripts
+├── content-script/   # Content scripts injected into web pages
+├── lib/             # Shared utilities and types
+├── popup/           # Extension popup UI components
+└── routes/          # SvelteKit routes (for development)
+```
+
+### Loading the Extension
+
+1. Build the extension: `npm run build`
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the `dist` directory
+
+### Key Files
+
+- [manifest.json](manifest.json) - Extension configuration
+- [src/lib/service.ts](src/lib/service.ts) - House data extraction logic
+- [src/lib/storage.ts](src/lib/storage.ts) - Chrome storage management
+- [src/popup/Popup.svelte](src/popup/Popup.svelte) - Main popup UI
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
